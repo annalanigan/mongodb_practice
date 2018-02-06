@@ -2,6 +2,7 @@ const express = require('express');
 const parser = require('body-parser');
 const server = express();
 const MongoClient = require('mongodb').MongoClient;
+const ObjectID = require('mongodb').ObjectID;
 
 server.use(parser.json());
 server.use(express.static('client/build')); //will look for the file called index so the path must direct it to that file
@@ -48,11 +49,18 @@ MongoClient.connect('mongodb://localhost:27017', function(err, client){
     });
   })
 
-  // server.delete('/api/disney/:id', function(req, res){
-  //
-  //   db.collection('characters').
-  //
-  // })
+  server.delete('/api/disney/:id', function(req, res){
+
+    db.collection('characters').deleteOne({ "_id": ObjectID(req.params.id)}, function(err, result){
+      if(err){
+        res.status(500),
+        res.send();
+      }
+
+      res.status(204);
+      res.json(result);
+    });
+  })
 
   server.listen(3000, function(){
     console.log("listening on port 3000");
