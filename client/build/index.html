@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Disney Characters</title>
-    <script src="bundle.js"></script>
-  </head>
-  <body>
-    <h1>Your Disney...</h1>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Disney Characters</title>
+  <script src="bundle.js"></script>
+</head>
+<body>
+  <h1>Your Disney...</h1>
+  <div>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="name"></br>
+      <label for="type">Character type</label>
+      <input type="text" id="type" placeholder="type"></br>
+      <label for="film">Film</label>
+      <input type="text" id="film" placeholder="film"></br>
+      <button type="submit" id="submit-button">Submit</button>
+    </form>
+  </div>
+  <div class="list-container">
+    <ul id="characters">
+    </ul>
+  </div>
+</body>
 </html>
